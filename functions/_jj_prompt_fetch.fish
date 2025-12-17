@@ -2,7 +2,7 @@ function _jj_prompt_fetch --description 'Fetch jj prompt info asynchronously'
     set --local var_name $argv[1]
     
     # Make a single jj call to get all info separated by newlines
-    set jj_info (jj log --quiet --ignore-working-copy --no-graph -r @ -T 'change_id.shortest() ++ "\n" ++ bookmarks.map(|bookmark| bookmark.name() ++ "|" ++ if(bookmark.synced(), "synced", "unsynced")).join(", ") ++ "\n" ++ description.first_line() ++ "\n" ++ if(conflict, "conflict", "") ++ " " ++ if(empty, "empty", "") ++ " " ++ if(divergent, "divergent", "") ++ " " ++ if(hidden, "hidden", "")' 2>/dev/null)
+    set jj_info (jj log --quiet --no-graph -r @ -T 'change_id.shortest() ++ "\n" ++ bookmarks.map(|bookmark| bookmark.name() ++ "|" ++ if(bookmark.synced(), "synced", "unsynced")).join(", ") ++ "\n" ++ description.first_line() ++ "\n" ++ if(conflict, "conflict", "") ++ " " ++ if(empty, "empty", "") ++ " " ++ if(divergent, "divergent", "") ++ " " ++ if(hidden, "hidden", "")' 2>/dev/null)
     
     test -z "$jj_info" && set --universal $var_name "" && exit
     
