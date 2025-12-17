@@ -78,10 +78,9 @@ In jj repositories, the prompt displays:
 - **Visual history** showing commits from trunk fork point to current
 
 Example prompt in a jj repo:
-```
-~/project [k] main* (empty) ○ ○ ● 
-❱
-```
+
+<img width="679" height="399" alt="image" src="https://github.com/user-attachments/assets/453d37c0-6987-45a1-9e1f-56621518e1c3" />
+
 
 ## How It Works
 
